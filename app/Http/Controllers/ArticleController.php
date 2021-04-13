@@ -46,7 +46,7 @@ class ArticleController extends Controller
             'feature_image' => $image_name,
         ]);
 
-        return redirect()->route('articles.index', ['success' => 'Data saved successfully!']);
+        return redirect()->route('articles.index')->with('success', 'Data saved successfully');
     }
 
     /**
