@@ -8,9 +8,9 @@
                     <a href="{{ route('articles.create') }}" class="btn btn-success">Add New Article</a>
                 </div>
                 <div class="col-12 mb-4">
-                    @if (Session::get('success'))
+                    @if (Session::has('success'))
                         <div class="alert alert-success" role="alert">
-                            {{ $message }}
+                            {{ Session::get('success') }}
                         </div>
                     @endif
                 </div>
@@ -24,9 +24,9 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Feature Image</th>
                                         <th>Title</th>
                                         <th>Content</th>
-                                        <th>Feature Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -36,13 +36,20 @@
                                             <th colspan="5">Data not found</th>
                                         </tr>
                                     @else
-                                        <tr>
-                                            <th>1</th>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                            <td>@mdo</td>
-                                        </tr>
+                                        @foreach ($articles as $article)
+                                            <tr>
+                                                <th>{{ $loop->iteration }}</th>
+                                                <td>
+                                                    <img src="{{ asset('storage/' . $article->feature_image . '') }}"
+                                                        width="100" alt="">
+                                                </td>
+                                                <td>{{ $article->title }}</td>
+                                                <td>{{ $article->content }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-sm btn-danger">Print PDF</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     @endif
 
                                 </tbody>
