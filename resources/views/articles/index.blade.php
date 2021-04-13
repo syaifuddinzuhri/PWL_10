@@ -6,6 +6,7 @@
             <div class="row">
                 <div class="col-12 mb-4">
                     <a href="{{ route('articles.create') }}" class="btn btn-success">Add New Article</a>
+                    <a href="{{ route('articles.print') }}" class="btn btn-danger">Print to PDF</a>
                 </div>
                 <div class="col-12 mb-4">
                     @if (Session::has('success'))
@@ -48,7 +49,6 @@
                                                 <td>
                                                     <a href="{{ route('articles.edit', $article->id) }}"
                                                         class="btn btn-sm btn-info">Edit</a>
-                                                    <a href="" class="btn btn-sm btn-danger">Print PDF</a>
                                                 </td>
                                             </tr>
                                         @endforeach
