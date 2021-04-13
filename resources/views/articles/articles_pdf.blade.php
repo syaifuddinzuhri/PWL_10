@@ -31,7 +31,7 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $a->title }}</td>
                     <td>{{ $a->content }}</td>
-                    <td>{{ $a->featured_image }}</td>
+                    <td> <img src="{{ asset('storage/' . $a->feature_image . '') }}" width="100" alt=""></td>
                 </tr>
             @endforeach
         </tbody>
