@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\MahasiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,4 @@ Route::get('/', function () {
 
 Route::get('articles/print-pdf', [ArticleController::class, 'print_pdf'])->name('articles.print');
 Route::resource('articles', ArticleController::class);
+Route::resource('mahasiswa', MahasiswaController::class);
