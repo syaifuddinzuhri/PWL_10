@@ -8,7 +8,7 @@
                     <a href="{{ route('articles.index') }}" class="btn btn-dark">Back</a>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                    <form action="{{ route('articles.store') }}" method="POST">
+                    <form action="{{ route('articles.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
@@ -22,10 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="image">Feature Image</label>
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="image" name="image" required>
-                                <label class="custom-file-label" for="image">Choose file</label>
-                            </div>
+                            <input type="file" class="form-control-file" id="image" name="image">
                         </div>
                         <button class="btn btn-primary" type="submit">Submit</button>
                     </form>
