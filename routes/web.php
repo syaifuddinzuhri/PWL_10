@@ -18,4 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('articles/print-pdf', [ArticleController::class, 'print_pdf'])->name('articles.print');
 Route::resource('articles', ArticleController::class);
