@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class ArticleController extends Controller
 {
@@ -81,7 +82,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        if($article->feature_image && file_exists( storage_path('app/public/ . $article->feature->image'))){
+        if($article->feature_image && file_exists( storage_path('app/public/' . $article->feature->image))){
             Storage::delete('public/' . $article->feature_image);
         }
         if($request->file('image')) {
@@ -104,5 +105,11 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
+    }
+
+    public function print_pdf(){
+        $articles = Article::all();
+        $pdf= PDF::loadview('articles.articles_pdf', ['articles' => $articles]);
+        return $pdf->stream();
     }
 }
