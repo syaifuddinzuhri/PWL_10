@@ -20,5 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('articles/print-pdf', [ArticleController::class, 'print_pdf'])->name('articles.print');
+Route::get('mahasiswa/cetak-khs/{nim}', [MahasiswaController::class, 'cetak_khs'])->name('nilai.cetak');
+Route::get('mahasiswa/nilai/{nim}', [MahasiswaController::class, 'nilai'])->name('mahasiswa.nilai');
+Route::get('mahasiswa/search', [MahasiswaController::class, 'search'])->name('mahasiswa.search');
+
 Route::resource('articles', ArticleController::class);
 Route::resource('mahasiswa', MahasiswaController::class);
