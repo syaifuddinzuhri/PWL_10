@@ -46,6 +46,8 @@
                                                 <td>{{ $article->title }}</td>
                                                 <td>{{ $article->content }}</td>
                                                 <td>
+                                                    <a href="{{ route('articles.edit', $article->id) }}"
+                                                        class="btn btn-sm btn-info">Edit</a>
                                                     <a href="" class="btn btn-sm btn-danger">Print PDF</a>
                                                 </td>
                                             </tr>
