@@ -8,7 +8,8 @@
                     <a href="{{ route('articles.index') }}" class="btn btn-dark">Back</a>
                 </div>
                 <div class="col-md-6 offset-md-3">
-                    <form>
+                    <form action="{{ route('articles.store') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="title">Title</label>
                             <input type="text" class="form-control" id="title" name="title" placeholder="Enter title"
