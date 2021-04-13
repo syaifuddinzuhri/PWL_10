@@ -182,6 +182,8 @@ class MahasiswaController extends Controller
 
     public function cetak_khs($nim){
         $mahasiswa = Mahasiswa::findOrFail($nim);
+
+        // Fungsi untuk mencetak ke pdf dengan mnggunakan DomPDF
         $pdf= PDF::loadview('mahasiswa.cetak_khs', ['mahasiswa' => $mahasiswa]);
         return $pdf->stream();
     }
